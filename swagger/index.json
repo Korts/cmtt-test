@@ -1,0 +1,213 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "Ads api - Тестовое задание для vc.ru",
+    "version": "0.1.0",
+    "title": "Ads API",
+    "contact": {
+      "email": "nadycher@gmail.com"
+    }
+  },
+  "basePath": "/",
+  "tags": [
+    {
+      "name": "ads"
+    }
+  ],
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/ads/relevant": {
+      "get": {
+        "tags": [
+          "ads"
+        ],
+        "summary": "Get an ads from the store",
+        "operationId": "getAds",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "success",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer",
+                  "example": 1
+                },
+                "text": {
+                  "type": "string",
+                  "example": "Adverts123"
+                },
+                "banner": {
+                  "type": "string",
+                  "example": "https://adssyste/ads12.jpg"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ads": {
+      "post": {
+        "tags": [
+          "ads"
+        ],
+        "summary": "Add a new ads to the store",
+        "operationId": "addAds",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "ads",
+            "schema": {
+              "type": "object",
+              "required": [
+                "price",
+                "limits",
+                "text",
+                "banner"
+              ],
+              "properties": {
+                "price": {
+                  "type": "integer",
+                  "example": 12
+                },
+                "limits": {
+                  "type": "integer",
+                  "example": 24
+                },
+                "text": {
+                  "type": "string",
+                  "example": "Adverts123"
+                },
+                "banner": {
+                  "type": "string",
+                  "example": "https://adssyste/ads12.jpg"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "success",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer",
+                  "example": 1
+                },
+                "text": {
+                  "type": "string",
+                  "example": "Adverts123"
+                },
+                "banner": {
+                  "type": "string",
+                  "example": "https://adssyste/ads12.jpg"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Invalid input"
+          }
+        }
+      }
+    },
+    "/ads/{id}": {
+      "post": {
+        "tags": [
+          "ads"
+        ],
+        "summary": "Update an ads in the store",
+        "operationId": "updateAds",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "in": "body",
+            "name": "ads",
+            "type": "object",
+            "schema": {
+              "type": "object",
+              "required": [
+                "adsId",
+                "price",
+                "limits",
+                "text",
+                "banner"
+              ],
+              "properties": {
+                "price": {
+                  "type": "integer",
+                  "example": 12
+                },
+                "limits": {
+                  "type": "integer",
+                  "example": 24
+                },
+                "text": {
+                  "type": "string",
+                  "example": "Adverts123"
+                },
+                "banner": {
+                  "type": "string",
+                  "example": "https://adssyste/ads12.jpg"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "success",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer",
+                  "example": 1
+                },
+                "text": {
+                  "type": "string",
+                  "example": "Adverts123"
+                },
+                "banner": {
+                  "type": "string",
+                  "example": "https://adssyste/ads12.jpg"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Invalid input"
+          }
+        }
+      }
+    }
+  }
+}
