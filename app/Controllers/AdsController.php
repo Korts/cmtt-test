@@ -46,6 +46,7 @@ class AdsController
                 break;
         }
         header($response['status_code_header']);
+        header('Content-Type: application/json');
         if ($response['body']) {
             echo $response['body'];
         }
