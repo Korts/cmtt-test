@@ -1,3 +1,6 @@
+## Постановка задачи
+https://github.com/Korts/cmtt-test/blob/master/TASK.MD
+
 ## Локальный разворот.
 1. git clone git@github.com:Korts/cmtt-test.git
 2. cd cmtt-test
