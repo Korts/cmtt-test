@@ -1,0 +1,33 @@
+version: "3.7"
+services:
+  app:
+    build:
+      dockerfile: .docker/Dockerfile
+    container_name: cmtt-php
+    restart: unless-stopped
+    tty: true
+    ports:
+      - 9000:9000
+    environment:
+      SERVICE_NAME: app
+    working_dir: /var/www
+    volumes:
+      - ./:/var/www
+    networks:
+      - cmtt
+  nginx:
+    image: nginx:alpine
+    container_name: cmtt-nginx
+    restart: unless-stopped
+    links:
+      - app
+    ports:
+      - 8000:80
+    volumes:
+      - ./:/var/www
+      - ./.docker/nginx/cmtt.conf:/etc/nginx/conf.d/cmtt.conf:ro
+    networks:
+      - cmtt
+networks:
+  cmtt:
+    driver: bridge
