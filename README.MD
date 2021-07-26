@@ -1,6 +1,6 @@
 ## Локальный разворот.
 1. git clone git@github.com:Korts/cmtt-test.git
-2. cd cmtt
+2. cd cmtt-test
 3. cp .env.example .env
 4. composer i
 5. docker-compose up -d
